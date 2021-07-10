@@ -14,7 +14,7 @@ export class UserEditComponent implements OnInit {
   user: User = new User
   idUser: number
   confirmarSenha: string
-  tipoUsario: string
+  tipoUsuario: string
 
   constructor(
     private authService: AuthService,
@@ -41,7 +41,7 @@ export class UserEditComponent implements OnInit {
   }
 
   tipoUser(event: any) {
-    this.tipoUsario = event.target.value
+    this.tipoUsuario = event.target.value
   }
 
   findByIdUser(id: number) {
@@ -51,7 +51,7 @@ export class UserEditComponent implements OnInit {
   }
 
   atualizar() {
-    this.user.tipo = this.tipoUsario
+    this.user.tipo = this.tipoUsuario
 
     if (this.user.senha != this.confirmarSenha) {
       alert('As senhas estão incorretas.')
