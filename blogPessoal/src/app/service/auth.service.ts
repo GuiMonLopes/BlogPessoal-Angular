@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserLogin } from '../model/UserLogin';
 import { Observable } from 'rxjs';
 import { User } from '../model/User';
@@ -14,6 +14,10 @@ export class AuthService {
   constructor(
     private http: HttpClient
   ) { }
+
+  token = {
+    headers: new HttpHeaders().set('Authorization', environment.token)
+  }
 
   entrar(userLogin: UserLogin): Observable<UserLogin> {
     return this.http.post<UserLogin>('http://localhost:8080/usuario/logar', userLogin)
