@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class UserEditComponent implements OnInit {
 
-  user: User = new User
+  user: User = new User()
   idUser: number
   confirmarSenha: string
   tipoUsuario: string
@@ -58,13 +58,13 @@ export class UserEditComponent implements OnInit {
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
-        this.router.navigate(['/inicio'])
-        alert('Usuario atualizado com sucesso, faça o login novamente.')
-        environment.token = ''
-        environment.nome = ''
-        environment.foto = ''
-        environment.id = 0
-        this.router.navigate(['/entrar'])
+
+        this.router.navigate(['/entrar']);
+        alert('Usuário Cadastrado com Sucesso! Faça login novamente');
+        environment.foto = '';
+        environment.nome = '';
+        environment.id = 0;
+        environment.token = '';
       })
     }
 

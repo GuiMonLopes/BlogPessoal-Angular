@@ -24,13 +24,13 @@ export class AuthService {
 
   }
 
-  cadastrar(user: User): Observable<User> {
+  cadastrar(user: User): Observable<User>{
     return this.http.post<User>('http://localhost:8080/usuario/cadastrar', user)
 
   }
 
   getByIdUser(id: number): Observable<User> {
-    return this.http.get<User>(`http://localhost:8080/usuario/${id}`)
+    return this.http.get<User>(`http://localhost:8080/usuario/${id}`, this.token)
   }
 
   logado() {
